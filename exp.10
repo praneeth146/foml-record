@@ -1,0 +1,2 @@
+librariesimport pandas as pdimport seaborn as snsimport matplotlib.pyplot as pltfrom sklearn.datasets import load_irisfrom sklearn.preprocessing import StandardScaler# Step 1: Load datasetdata = load_iris()df = pd.DataFrame(data.data, columns=data.feature_names)# Step 2: Scale data
+scaler = StandardScaler()scaled_data = pd.DataFrame(scaler.fit_transform(df), columns=df.columns)# Step 3: Correlation Heatmapplt.figure(figsize=(8,6))sns.heatmap(scaled_data.corr(), annot=True, cmap='coolwarm', linewidths=0.5)plt.title('Feature Correlation Heatmap (Scaled Data)')plt.show()
